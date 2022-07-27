@@ -4,6 +4,7 @@ from main import PLAYERS
 #from hard_mode improt bot2((bot2 - hard mode))
 
 def get_difficultly_level(level):
+    """Запрашивает у пользователя уровень сложности для игры с ботом."""
     if level == 'easy':
         #bot1()
     if level == 'hard':
