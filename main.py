@@ -54,7 +54,7 @@ def new_player(player_name: str) -> None:
     """Создаёт запись о новом игроке в глобальной переменной статистики."""
 
 
-def game_mode() -> str:
+def game_mode() -> None:
     """Запрашивает режим для новой партии, добавляет имя бота либо второго
     игрока в глобальную переменную текущих игроков, запрашивает очерёдность ходов."""
     # stdin -> mode
@@ -64,7 +64,6 @@ def game_mode() -> str:
     #     get_player_name()
     # stdin -> who_is_cross
     # name -> PLAYERS
-    # return -> mode
 
 
 def is_first_game() -> bool:
@@ -76,7 +75,8 @@ def is_first_game() -> bool:
     #     return False
 
 
-#def game(zero_turn=False) -> tuple[dict, dict] | None:
+# СДЕЛАТЬ: такая аннотация типа точно поддерживается версией интерпретатора 3.10.5 - соответственно, можно обновить интерпретатор или использовать модуль typing из стандартной библиотеки
+def game(zero_turn=False) -> tuple[dict, dict] | None:
     """Обрабатывает игровой процесс."""
     # training = is_first_game()
     # for name in PLAYERS:
@@ -113,6 +113,7 @@ def load() -> bool:
     #     return True
 
 
+# СДЕЛАТЬ: такая аннотация типа точно поддерживается версией интерпретатора 3.10.5 - соответственно, можно обновить интерпретатор или использовать модуль typing из стандартной библиотеки
 def update_stats(score: tuple[dict, dict]) -> None:
     """Обновляет глобальную переменную статистики в соответствии с результатом завершённой партии."""
     # for i in range(2):
