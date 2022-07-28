@@ -1,26 +1,35 @@
 from main import PLAYERS
-#from get_player_name import get_player_name
+# from get_player_name import get_player_name
+
+# ОТВЕТИТЬ: уверены, что стоит разносить функции game_mode() и get_difficultly_level() по разным модулям? аргументируйте решение
 from get_difficultly_level import get_difficultly_level as gdl
 
-def game_mode(mode) -> str:
-    """Запрашивает режим для новой партии, добавляет имя бота либо второго
-    игрока в глобальную переменную текущих игроков, запрашивает очерёдность ходов."""
+
+# ИСПРАВИТЬ: согласно документации, функция должна именно запрашивать режим игры, а не принимать его в качестве параметра
+# возврат значения этой ↯ функцией был убран в ходе обсуждения
+def game_mode(mode) -> None:
+    """Запрашивает режим для новой партии, добавляет имя бота либо второго игрока в глобальную переменную текущих игроков, запрашивает очерёдность ходов."""
     # stdin -> mode
-    mode = input('Choose game mode(single or double): ')
+    mode = input('Choose game mode (single or double): ')
     # if mode == 'single':
     #     get_difficulty_level()
     if mode.lower() == 'single':
         gdl()
-    # elif mode == 'double':
-    #     get_player_name()
     elif mode == 'double':
-        #get_player_name()
-    who_is_cross = input('who is cross?: ')
-    if who_is_cross == PLAYERS['player1']:
-        PLAYERS['player2'] == 'O'
-    return mode
-    # stdin -> who_is_cross
-    # name -> PLAYERS
-    # return -> mode
+        # get_player_name()
+        # ИСПОЛЬЗОВАТЬ: с ключевым словом pass вы сможете создавать пустые заготовки блоков и при этом любым образом использовать все нужные вам файлы
+        pass
 
-game_mode(single)
+    # stdin -> who_is_cross
+    who_is_cross = input('who is cross?: ')
+    # name -> PLAYERS
+
+    # ИСПРАВИТЬ: 1) в переменной PLAYERS предполагается хранить кортеж с именами игроков, а не словарь - либо тогда меняйте структуру глобальных переменных и тех функций, которые работают с ними, например, функции game()
+    # ИСПРАВИТЬ: 2) идея была в том, чтобы порядок расположения имён в кортеже соответствовал очерёдности хода, т.е. первым в кортеже должно быть имя игрока/бота, играющего крестиком - а значит, возможно необходимо поменять текущий порядок имён в кортеже
+    if who_is_cross == PLAYERS['player1']:
+        PLAYERS['player2'] = 'O'
+    # возврат значения этой функцией был убран в ходе обсуждения
+
+
+# ИСПРАВИТЬ: после проведения теста этот вызов функции нужно закомментировать или удалить
+game_mode('single')
