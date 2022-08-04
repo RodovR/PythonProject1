@@ -1,6 +1,6 @@
 
 """Выводит в консоль игровое поле"""
-def show_field():
+def show_field() -> str:
     players = ('player 1', 'player 2')
     symbol = ('X', 'O')
     """Добавляет вертикальные линии"""
@@ -16,4 +16,5 @@ def show_field():
             print(vertical_line, horiz_line, sep = '\n')
             print(vertical_line)
 
-#show_field()
+
+show_field()
